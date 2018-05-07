@@ -33,8 +33,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception{
 		LOGGER.info("warriors");
 		http.csrf().disable().authorizeRequests().antMatchers("/SecureRestfulApp/unsecure/showdataset/").permitAll()
-				.antMatchers("/secure/**/", "/securetester/**/").hasRole(RoleConstants.USER.toString())
-				.antMatchers("/secure/**/", "/securetester/**/").hasRole(RoleConstants.ADMIN.toString()).and().httpBasic()
-				.authenticationEntryPoint(entryPoint).and().exceptionHandling().accessDeniedHandler(handler);
+				.antMatchers("/secure/**/", "/securetester/**/")
+				.hasAnyRole(RoleConstants.ADMIN.toString(), RoleConstants.USER.toString())
+				// .antMatchers("/secure/**/", "/securetester/**/").hasRole(RoleConstants.USER.toString())
+				.and().httpBasic().authenticationEntryPoint(entryPoint).and().exceptionHandling()
+				.accessDeniedHandler(handler);
 	}
 }
