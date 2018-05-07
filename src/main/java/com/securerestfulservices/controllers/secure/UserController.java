@@ -23,21 +23,13 @@ public class UserController {
 	@Autowired
 	UserManagedService userService; // Service which will do all data retrieval/manipulation work
 	
-	// http://localhost:8080/securetester/user/profile/
-	@RequestMapping(value = "/user/profile", method = RequestMethod.GET)
-	public HttpEntity<AbstractResponseDto> profileDetail(Principal principal){
-		LOGGER.info("current username - " + principal.getName());
-		UserDto user = userService.findByUsername(principal.getName());
-		return ResponseUtil.success().body(user).send(HttpStatus.OK);
-	}
-	
-	// http://localhost:8080/user/count/
+	// http://localhost:8080/SecureRestfulApp/securetester/user/count
 	@RequestMapping(value = "/user/count", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> userCout(){
 		return ResponseUtil.success().body(userService.count()).send(HttpStatus.OK);
 	}
 	
-	// http://localhost:8080/user/
+	// http://localhost:8080/SecureRestfulApp/securetester/user/
 	@RequestMapping(value = "/user/", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> listAllUsers(){
 		UserList users = userService.findAllUsers();
@@ -47,7 +39,7 @@ public class UserController {
 		return ResponseUtil.success().body(users).message("User list fetched successfully !!!").send(HttpStatus.OK);
 	}
 	
-	// http://localhost:8080/user/1
+	// http://localhost:8080/SecureRestfulApp/securetester/user/1
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
 	public ResponseEntity<AbstractResponseDto> getUser(@PathVariable("id") long id){
 		UserDto user = userService.findById(id);
@@ -55,6 +47,14 @@ public class UserController {
 			return ResponseUtil.error().message("No data found").send(HttpStatus.NOT_FOUND);
 		}
 		return ResponseUtil.success().body(user).message("User fetched successfully !!!").send(HttpStatus.OK);
+	}
+	
+	// http://localhost:8080/SecureRestfulApp/securetester/user/profile
+	@RequestMapping(value = "/user/profile", method = RequestMethod.GET)
+	public HttpEntity<AbstractResponseDto> profileDetail(Principal principal){
+		LOGGER.info("current username - " + principal.getName());
+		UserDto user = userService.findByUsername(principal.getName());
+		return ResponseUtil.success().body(user).send(HttpStatus.OK);
 	}
 	// ******************** Create ******************** // http://localhost:8080/user/
 	/*

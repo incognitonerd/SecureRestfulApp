@@ -25,7 +25,7 @@ public class RandomQueriesController {
 	@Autowired
 	private RandomQueriesRepository dataSet;
 	
-	// http://localhost:8080/secure/randomqueries/getTwoMostPopRegDates
+	// http://localhost:8080/SecureRestfulApp/secure/randomqueries/getTwoMostPopRegDates
 	@RequestMapping(value = "/getTwoMostPopRegDates", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getTwoMostPopRegDates(){
 		List<TwoMostPopRegDatesDTO> results = dataSet.getTwoMostPopRegDates();
@@ -36,7 +36,7 @@ public class RandomQueriesController {
 	 * if(results != null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	//http://localhost:8080/secure/randomqueries/getInactiveUsers
+	// http://localhost:8080/SecureRestfulApp/secure/randomqueries/getInactiveUsers
 	@RequestMapping(value = "/getInactiveUsers", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getInactiveUsers(){
 		List<InactiveUsersDTO> results = dataSet.getInactiveUsers();
@@ -47,7 +47,7 @@ public class RandomQueriesController {
 	 * != null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	//http://localhost:8080/secure/randomqueries/getMostPopPhoto
+	// http://localhost:8080/SecureRestfulApp/secure/randomqueries/getMostPopPhoto
 	@RequestMapping(value = "/getMostPopPhoto", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getMostPopPhoto(){
 		List<MostPopPhotoDTO> results = dataSet.getMostPopPhoto();
@@ -58,7 +58,7 @@ public class RandomQueriesController {
 	 * null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	//http://localhost:8080/secure/randomqueries/getAvgPhotosPerUser
+	// http://localhost:8080/SecureRestfulApp/secure/randomqueries/getAvgPhotosPerUser
 	@RequestMapping(value = "/getAvgPhotosPerUser", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAvgPhotosPerUser(){
 		List<AvgPhotosPerUserDTO> results = dataSet.getAvgPhotosPerUser();
@@ -69,7 +69,7 @@ public class RandomQueriesController {
 	 * if(results != null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	//http://localhost:8080/secure/randomqueries/getFiveMostPopHashtags
+	// http://localhost:8080/SecureRestfulApp/secure/randomqueries/getFiveMostPopHashtags
 	@RequestMapping(value = "/getFiveMostPopHashtags", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getFiveMostPopHashtags(){
 		List<FiveMostPopHashtagsDTO> results = dataSet.getFiveMostPopHashtags();
@@ -80,7 +80,7 @@ public class RandomQueriesController {
 	 * dataSet.getFiveMostPopHashtags(); if(results != null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	//http://localhost:8080/secure/randomqueries/getUsersWhoMayBeBots
+	// http://localhost:8080/SecureRestfulApp/secure/randomqueries/getUsersWhoMayBeBots
 	@RequestMapping(value = "/getUsersWhoMayBeBots", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getUsersWhoMayBeBots(){
 		List<UsersWhoMayBeBotsDTO> results = dataSet.getUsersWhoMayBeBots();

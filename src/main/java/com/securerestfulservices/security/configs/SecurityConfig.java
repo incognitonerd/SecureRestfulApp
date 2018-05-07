@@ -1,7 +1,8 @@
 package com.securerestfulservices.security.configs;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -14,6 +15,7 @@ import com.securerestfulservices.utils.RoleConstants;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfig.class);
 	@Autowired
 	private BasicAuthenticationEntryPoint entryPoint;
 	@Autowired
@@ -23,20 +25,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobalSecurity(AuthenticationManagerBuilder auth) throws Exception{
+		LOGGER.info("celtics");
 		auth.userDetailsService(userDetailsService);
-		System.out.println("celtics");
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
-		http.headers().cacheControl().disable();
-		
-		System.out.println("warriors");
-		http.csrf().disable().authorizeRequests().antMatchers("/securetester/user/count").permitAll()
-				.antMatchers("/securetester/user/profile").hasRole(RoleConstants.USER.toString())
-				.antMatchers("/securetester/user/**").hasRole(RoleConstants.ADMIN.toString())
-				.antMatchers("/secure/randomqueries/").hasRole(RoleConstants.USER.toString())
-				.antMatchers("/secure/randomqueries/").hasRole(RoleConstants.ADMIN.toString()).and().httpBasic()
+		LOGGER.info("warriors");
+		http.csrf().disable().authorizeRequests().antMatchers("/SecureRestfulApp/unsecure/showdataset/").permitAll()
+				.antMatchers("/secure/**/", "/securetester/**/").hasRole(RoleConstants.USER.toString())
+				.antMatchers("/secure/**/", "/securetester/**/").hasRole(RoleConstants.ADMIN.toString()).and().httpBasic()
 				.authenticationEntryPoint(entryPoint).and().exceptionHandling().accessDeniedHandler(handler);
 	}
 }

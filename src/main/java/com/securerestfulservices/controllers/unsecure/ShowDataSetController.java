@@ -30,7 +30,7 @@ public class ShowDataSetController {
 	@Autowired
 	private ShowDataSetRepository dataSet;
 	
-	// http://localhost:8080/unsecure/showdataset/getAvailableEndpoints
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAvailableEndpoints
 	@RequestMapping(value = "/getAvailableEndpoints", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAvailableEndpoints(){
 		List<AvailableEndpoint> results = dataSet.getAvailableEndpoints();
@@ -41,7 +41,7 @@ public class ShowDataSetController {
 	 * dataSet.getAvailableEndpoints(); if(results != null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllComments
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllComments
 	@RequestMapping(value = "/getAllComments", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllComments(){
 		List<Comment> results = dataSet.getAllComments();
@@ -52,7 +52,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllFollows
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllFollows
 	@RequestMapping(value = "/getAllFollows", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllFollows(){
 		List<Follow> results = dataSet.getAllFollows();
@@ -63,7 +63,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("follows size - " + follows.size()); return follows; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllLikes
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllLikes
 	@RequestMapping(value = "/getAllLikes", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllLikes(){
 		List<Like> results = dataSet.getAllLikes();
@@ -74,7 +74,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllPhotos
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllPhotos
 	@RequestMapping(value = "/getAllPhotos", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllPhotos(){
 		List<Photo> results = dataSet.getAllPhotos();
@@ -85,7 +85,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllPhotoTags
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllPhotoTags
 	@RequestMapping(value = "/getAllPhotoTags", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllPhotoTags(){
 		List<PhotoTag> results = dataSet.getAllPhotoTags();
@@ -96,7 +96,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllTables
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllTables
 	@RequestMapping(value = "/getAllTables", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllTables(){
 		List<Table> results = dataSet.getAllTables();
@@ -107,7 +107,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllTableStats
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllTableStats
 	@RequestMapping(value = "/getAllTableStats", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllTableStats(){
 		List<TableStat> results = dataSet.getAllTableStats();
@@ -118,7 +118,7 @@ public class ShowDataSetController {
 	 * null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllTags
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllTags
 	@RequestMapping(value = "/getAllTags", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllTags(){
 		List<Tag> results = dataSet.getAllTags();
@@ -129,7 +129,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getAllUsers
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllUsers
 	@RequestMapping(value = "/getAllUsers", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllUsers(){
 		List<User> results = dataSet.getAllUsers();
@@ -140,7 +140,7 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/unsecure/showdataset/getProjects
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
 	@RequestMapping(value = "/getProjects", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getProjects(){
 		List<Project> results = dataSet.getAllProjects();
