@@ -140,14 +140,19 @@ public class ShowDataSetController {
 	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
 	 */
 	
-	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
-	@RequestMapping(value = "/getProjects", method = RequestMethod.GET)
-	public HttpEntity<AbstractResponseDto> getProjects(){
-		List<Project> results = dataSet.getAllProjects();
-		return ResponseUtil.success().body(results).send(HttpStatus.OK);
-	}
 	/*
-	 * @RequestMapping(value = "/getProjects", method = RequestMethod.GET, produces = "application/json; charset=UTF-8") public Object getProjects() throws Exception{ List<Project> results = dataSet.getAllProjects(); if(results != null){
-	 * LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
+	 * http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
+	 * @RequestMapping(value = "/getProjects", method = RequestMethod.GET) public HttpEntity<AbstractResponseDto> getProjects(){ List<Project> results = dataSet.getAllProjects(); return ResponseUtil.success().body(results).send(HttpStatus.OK); }
 	 */
+	//http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
+	@RequestMapping(value = "/getProjects", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public Object getProjects() throws Exception{
+		List<Project> results = dataSet.getAllProjects();
+		if(results != null){
+			LOGGER.info("results size - " + results.size());
+			return results;
+		} else{
+			return null;
+		}
+	}
 }
