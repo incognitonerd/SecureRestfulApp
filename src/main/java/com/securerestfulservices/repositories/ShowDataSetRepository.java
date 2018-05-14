@@ -91,8 +91,9 @@ public class ShowDataSetRepository {
 	}
 	
 	public List<AvailableEndpoint> getAvailableEndpoints(){
-		List<AvailableEndpoint> result = jdbcTemplate.query("SELECT * FROM endpoints", (rs,
-				rowNum)->new AvailableEndpoint(rs.getInt("id"), rs.getString("endpointUrl"), rs.getString("endpointQuery")));
+		List<AvailableEndpoint> result = jdbcTemplate.query("SELECT * FROM endpoints",
+				(rs, rowNum)->new AvailableEndpoint(rs.getInt("id"), rs.getString("endpointUrl"),
+						rs.getString("endpointQuery"), rs.getString("description")));
 		return result;
 	}
 	
