@@ -30,17 +30,6 @@ public class ShowDataSetController {
 	@Autowired
 	private ShowDataSetRepository dataSet;
 	
-	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAvailableEndpoints
-	@RequestMapping(value = "/getAvailableEndpoints", method = RequestMethod.GET)
-	public HttpEntity<AbstractResponseDto> getAvailableEndpoints(){
-		List<AvailableEndpoint> results = dataSet.getAvailableEndpoints();
-		return ResponseUtil.success().body(results).send(HttpStatus.OK);
-	}
-	/*
-	 * @RequestMapping(value = "/getAvailableEndpoints", method = RequestMethod.GET, produces = "application/json; charset=UTF-8") public Object getAvailableEndpoints() throws Exception{ List<AvailableEndpoint> results =
-	 * dataSet.getAvailableEndpoints(); if(results != null){ LOGGER.info("results size - " + results.size()); return results; } else{ return null; } }
-	 */
-	
 	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAllComments
 	@RequestMapping(value = "/getAllComments", method = RequestMethod.GET)
 	public HttpEntity<AbstractResponseDto> getAllComments(){
@@ -144,10 +133,27 @@ public class ShowDataSetController {
 	 * http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
 	 * @RequestMapping(value = "/getProjects", method = RequestMethod.GET) public HttpEntity<AbstractResponseDto> getProjects(){ List<Project> results = dataSet.getAllProjects(); return ResponseUtil.success().body(results).send(HttpStatus.OK); }
 	 */
-	//http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
+	// http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getProjects
 	@RequestMapping(value = "/getProjects", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
 	public Object getProjects() throws Exception{
 		List<Project> results = dataSet.getAllProjects();
+		if(results != null){
+			LOGGER.info("results size - " + results.size());
+			return results;
+		} else{
+			return null;
+		}
+	}
+	
+	/*
+	 * 
+	 * @RequestMapping(value = "/getAvailableEndpoints", method = RequestMethod.GET) public HttpEntity<AbstractResponseDto> getAvailableEndpoints(){ List<AvailableEndpoint> results = dataSet.getAvailableEndpoints(); return
+	 * ResponseUtil.success().body(results).send(HttpStatus.OK); }
+	 */
+	//http://localhost:8080/SecureRestfulApp/unsecure/showdataset/getAvailableEndpoints
+	@RequestMapping(value = "/getAvailableEndpoints", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
+	public Object getAvailableEndpoints() throws Exception{
+		List<AvailableEndpoint> results = dataSet.getAvailableEndpoints();
 		if(results != null){
 			LOGGER.info("results size - " + results.size());
 			return results;
