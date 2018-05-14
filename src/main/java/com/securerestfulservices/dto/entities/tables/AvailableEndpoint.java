@@ -4,12 +4,14 @@ public class AvailableEndpoint {
 	private String endpointUrl;
 	private String endpointQuery;
 	private String description;
+	private String name;
 	
-	public AvailableEndpoint(int id, String endpointUrl, String endpointQuery, String description){
+	public AvailableEndpoint(int id, String endpointUrl, String endpointQuery, String description, String name){
 		this.id = id;
 		this.endpointUrl = endpointUrl;
 		this.endpointQuery = endpointQuery;
 		this.description = description;
+		this.name = name;
 	}
 	
 	public int getId(){
@@ -42,5 +44,13 @@ public class AvailableEndpoint {
 	
 	public void setDescription(String description){
 		this.description = description;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void setName(String name){
+		this.name = name;
 	}
 }
